@@ -16,7 +16,7 @@ class Mahasiswa {
     public int getNilai() {
         return Nilaiku;
     }
-     //polimorphism
+     //Penggunaan Polimorphism
     public String Ketuntasan(){
       return "Setiap Matkul Memiliki Nilai Ketuntasan Masing-masing";
     }
@@ -34,7 +34,7 @@ class Matkul extends Mahasiswa{
     return SemesterQ;
   }
 
-  //polimorphism
+  //Penggunaan Polimorphism
   public String Ketuntasan(){
     return "Matkul ini sudah tuntas.";
   }
