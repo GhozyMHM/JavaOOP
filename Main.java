@@ -1,26 +1,26 @@
-//Enkap(y), Inher(y), Poly(y), this(y), interface(y), Keyword super(y), final, abstract class (y), abstract method (y), overriding method(y), overloading method, constructor (y)
+//Enkap(y), Inher(y), Poly(y), this(y), interface(y), Keyword super(y), final (y), abstract class (y), abstract method (y), overriding method(y), overloading method (y), constructor (y)
 
 //Penggunaan Encapsulation
 class Mahasiswa {
-    public String Nama,NPM, Name = "Budi";
-    private int Nilaiku;
-    protected int SemesterQ;
+  public String Nama,NPM, Name = "Budi";
+  private int Nilaiku;
+  protected int Semesterku;
 
-    // Setter
-    public void setNilai(int Nilaiku) {
-        this.Nilaiku = Nilaiku;
-    }
-
-    // Getter
-    public int getNilai() {
-        return Nilaiku;
-    }
-    
-     // Penggunaan Polimorphism
-    public String Ketuntasan(){
-      return "Setiap Matkul Memiliki Nilai Ketuntasan Masing-masing";
-    }
+  // Setter
+  public void setNilai(int Nilaiku) {
+      this.Nilaiku = Nilaiku;
   }
+
+  // Getter
+  public int getNilai() {
+      return Nilaiku;
+  }
+  
+    // Penggunaan Polimorphism
+  public String Ketuntasan(){
+    return "Setiap Matkul Memiliki Nilai Ketuntasan Masing-masing";
+  }
+}
 
 // Penggunaan Inheritance
 class Matkul extends Mahasiswa{
@@ -28,12 +28,12 @@ class Matkul extends Mahasiswa{
   String Name = "Akuntansi 3";
 
   public void setSemester(int Semester) {
-    SemesterQ = Semester;
+    Semesterku = Semester;
   }
 
   // Getter
   public int getSemester(){
-    return SemesterQ;
+    return Semesterku;
   }
 
   // Penggunaan Polimorphism (Overriding)
@@ -64,9 +64,9 @@ class PBO extends Penilaian {
     this.UjianAkhir = UjianAkhir;
   }
 
-    double Hitung() {
-      return ((0.9*Kehadiran)+(0.1*UjianAkhir));
-    }
+  double Hitung() {
+    return ((0.9*Kehadiran)+(0.1*UjianAkhir));
+  }
 }
 
 //subclass dari superclass abstract
@@ -122,6 +122,26 @@ class Proses implements Lepkom {
   } 
 }
 
+// Penggunaan Overloading
+class UKM {
+  public final void namaUKM() {
+    String ukm = "Silat";
+    System.out.println("Nama UKM dari Method pertama di class UKM = " + ukm);
+  }
+
+  public final void namaUKM(String ukm) {
+    System.out.println("Nama UKM dari Method kedua di class UKM = " + ukm);
+  }
+}
+
+// //Pembuktian method final
+class UKMExt extends UKM {
+   public void namaUKM() {
+    String ukm = "Basket";
+    System.out.println("Nama UKM dari Method pertama di class UKM = " + ukm);
+  }
+}
+
 class Main {
   public static void main(String[] args) {
     // Mahasiswa Biodata = new Mahasiswa();
@@ -157,6 +177,14 @@ class Main {
     // Praktikan Bambanks = new Praktikan(Periksa);
     // Bambanks.prosesCekNilaiAkhir(30,40,100);
     // Bambanks.prosesCekKelulusan(56);
-    
+
+    // // Hasil dari Overloading
+    // UKM Badrul = new UKM();
+    // Badrul.namaUKM();
+    // Badrul.namaUKM("Futsal");
+
+    // // Hasil Penggunaan dan Pembuktian Final Keyword
+    // UKMExt Badril = new UKMExt();
+    // Badril.namaUKM();
   }
 }
