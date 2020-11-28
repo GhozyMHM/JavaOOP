@@ -2,7 +2,7 @@
 
 //Penggunaan Encapsulation
 class Mahasiswa {
-  public String Nama,NPM, Name = "Budi";
+  public String Nama,NPM, Name = "Joko";
   private int Nilaiku;
   protected int Semesterku;
 
@@ -38,13 +38,15 @@ class Matkul extends Mahasiswa{
 
   // Penggunaan Polimorphism (Overriding)
   public String Ketuntasan(){
-    return "Matkul ini sudah tuntas.";
+    return "Absensi juga berpengaruh terhadap ketuntasan";
   }
 
   // Penggunaan super
   public void Cetak(){
-    System.out.println("Nilai dari atribut Name yang ada di class Mahasiswa (Superclass) = " + super.Name);
-    System.out.println("Nilai dari atribut Name yang ada di class Matkul (Subclass) = " + this.Name);
+    // Penggunaan super
+    System.out.println("Nama Mahasiswa = " + super.Name);
+    // Penggunaan this
+    System.out.println("Mata Kuliah Favorit = " + this.Name);
   }
 }
 
@@ -97,11 +99,12 @@ class Praktikan {
   }
 
   void prosesCekNilaiAkhir(int Posttest, int Activity, int Pretest){
-    System.out.println(this.lep.cekNilaiAkhir(Posttest, Activity, Pretest));
+    // Menampilkan hasil akhir ujian lepkom (56.0)
+    System.out.println("Nilai akhir ujian Lepkom anda = "+ this.lep.cekNilaiAkhir(Posttest, Activity, Pretest));
   }
 
   void prosesCekKelulusan(int NilaiAkhir){
-    System.out.println(this.lep.cekKelulusan(NilaiAkhir));
+    System.out.println("Status Kelulusan Lepkom = "+this.lep.cekKelulusan(NilaiAkhir));
   }
 }
 
@@ -126,62 +129,73 @@ class Proses implements Lepkom {
 class UKM {
   public final void namaUKM() {
     String ukm = "Silat";
-    System.out.println("Nama UKM dari Method pertama di class UKM = " + ukm);
+    System.out.println("UKM yang sudah diikuti = " + ukm);
   }
 
   public final void namaUKM(String ukm) {
-    System.out.println("Nama UKM dari Method kedua di class UKM = " + ukm);
+    System.out.println("UKM yang akan diikuti = " + ukm);
   }
 }
 
 // //Pembuktian method final
-class UKMExt extends UKM {
-   public void namaUKM() {
-    String ukm = "Basket";
-    System.out.println("Nama UKM dari Method pertama di class UKM = " + ukm);
-  }
-}
+// class UKMExt extends UKM {
+//    public void namaUKM() {
+//     String ukm = "Basket";
+//     System.out.println("Nama UKM dari Method pertama di class UKM = " + ukm);
+//   }
+// }
 
 class Main {
   public static void main(String[] args) {
-    // Mahasiswa Biodata = new Mahasiswa();
-    // Matkul M1 = new Matkul();
+    System.out.println("==========================");
+    System.out.println("      DATA MAHASISWA");
+    System.out.println("==========================");
+    Mahasiswa Biodata = new Mahasiswa();
+    Matkul M1 = new Matkul();
     
-    // // Hasil dari Encapsulation, Inheritance, 
-    // Biodata.Nama = "Joko";
-    // Biodata.NPM = "12121212";
-    // Biodata.setNilai(90);
-    // M1.setSemester(5);
+    // Hasil dari Encapsulation, Inheritance, 
+    Biodata.Nama = "Joko";
+    Biodata.NPM = "12121212";
+    Biodata.setNilai(90);
+    M1.setSemester(5);
     
-    // System.out.println("Nama  = " + Biodata.Nama);
-    // System.out.println("NPM   = " + Biodata.NPM);
-    // System.out.println("Nilai = " + Biodata.getNilai());
-    // System.out.println("Semester = " + M1.getSemester());
+    System.out.println(" ");
+    System.out.println("Nama     = " + Biodata.Nama);
+    System.out.println("NPM      = " + Biodata.NPM);
+    System.out.println("Nilai    = " + Biodata.getNilai());
+    System.out.println("Semester = " + M1.getSemester());
+    System.out.println(" ");
 
-    // // Hasil dari super
-    // M1.Cetak();
+    // Hasil dari super
+    M1.Cetak();
+    System.out.println(" ");
 
-    // // Hasil dari Polymorphism, Overriding Method
-    // System.out.println("Isi dari method Ketuntasan di class nilai = " + Biodata.Ketuntasan());
-    // System.out.println("Isi dari method Ketuntasan di class matkul = " + M1.Ketuntasan());
+    // Hasil dari Polymorphism, Overriding Method
+    // Class Mahasiswa
+    System.out.println("Catatan 1 = " + Biodata.Ketuntasan());
+    // Class Matkul
+    System.out.println("Catatan 2 = " + M1.Ketuntasan());
 
-    // // Hasil dari Abstract Class, Abstract Method, dan Constructor
-    // Penilaian PBOB = new PBO(2,10);
-    // Penilaian IMKO = new IMK(2,10);
+    System.out.println(" ");
+    // Hasil dari Abstract Class, Abstract Method, dan Constructor
+    Penilaian PBOB = new PBO(2,10);
+    Penilaian IMKO = new IMK(2,10);
 
-    // System.out.println("Nilai Mata Kuliah PBO = " + PBOB.Hitung());
-    // System.out.println("Nilai Mata Kuliah IMK = " + IMKO.Hitung());
+    System.out.println("Nilai Mata Kuliah PBO = " + PBOB.Hitung());
+    System.out.println("Nilai Mata Kuliah IMK = " + IMKO.Hitung());
 
     // // Hasil dari Interface
-    // Lepkom Periksa = new Proses();
-    // Praktikan Bambanks = new Praktikan(Periksa);
-    // Bambanks.prosesCekNilaiAkhir(30,40,100);
-    // Bambanks.prosesCekKelulusan(56);
+    System.out.println(" ");
+    Lepkom Periksa = new Proses();
+    Praktikan Bambanks = new Praktikan(Periksa);
+    Bambanks.prosesCekNilaiAkhir(30,40,100);
+    Bambanks.prosesCekKelulusan(56);
 
     // // Hasil dari Overloading
-    // UKM Badrul = new UKM();
-    // Badrul.namaUKM();
-    // Badrul.namaUKM("Futsal");
+    System.out.println(" ");
+    UKM Badrul = new UKM();
+    Badrul.namaUKM();
+    Badrul.namaUKM("Futsal");
 
     // // Hasil Penggunaan dan Pembuktian Final Keyword
     // UKMExt Badril = new UKMExt();
